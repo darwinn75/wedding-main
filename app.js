@@ -74,7 +74,7 @@ app.get("/view-guests", (req, res) => {
 		}
 		// Construct HTML table dynamically
 		let tableHtml =
-			"<table border='1'><tr><th>Guest Name</th><th>First Name</th><th>Number of Guests</th><th>Event</th><th>Remarks</th></tr>"
+			"<table border='1'><tr><th>nom</th><th>prenom</th><th>Number of Guests</th><th>Event</th><th>Remarks</th></tr>"
 		result.rows.forEach((row) => {
 			tableHtml += `<tr><td>${row.nom}</td><td>${row.prenom}</td><td>${row.nombrepersonnes}</td><td>${row.evenement}</td><td>${row.remarque}</td></tr>`
 		})
