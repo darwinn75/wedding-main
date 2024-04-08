@@ -29,7 +29,7 @@ app.use((req, res, next) => {
 const createTableQuery = `
 CREATE TABLE IF NOT EXISTS guests (
   id SERIAL PRIMARY KEY,
-  guestName TEXT,
+  nom TEXT,
   prenom TEXT,
   nombrePersonnes INTEGER,
   evenement TEXT,
