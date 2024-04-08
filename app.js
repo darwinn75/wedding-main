@@ -46,25 +46,25 @@ pool.query(createTableQuery, (err, res) => {
 
 // Example for "/submit-form" route
 app.post("/submit-form", (req, res) => {
-	const { guestName, prenom, nombrePersonnes, evenement, remarque } = req.body
+	const { nom, prenom, nombrePersonnes, evenement, remarque } = req.body
 	const insertQuery = `
-    INSERT INTO guests (guestName, prenom, nombrePersonnes, evenement, remarque)
+    INSERT INTO guests (nom, prenom, nombrePersonnes, evenement, remarque)
     VALUES ($1, $2, $3, $4, $5)`
 
-	pool.query(insertQuery, [guestName, prenom, nombrePersonnes, evenement, remarque], (err) => {
+	pool.query(insertQuery, [nom, prenom, nombrePersonnes, evenement, remarque], (err) => {
 		if (err) {
 			return console.error(err.message)
 		}
 		res.redirect(
-			`/confirmation?guestName=${guestName}&prenom=${prenom}&nombrePersonnes=${nombrePersonnes}&evenement=${evenement}&remarque=${remarque}`
+			`/confirmation?nom=${nom}&prenom=${prenom}&nombrePersonnes=${nombrePersonnes}&evenement=${evenement}&remarque=${remarque}`
 		)
 	})
 })
 
 app.get("/confirmation", (req, res) => {
-	const { guestName, prenom, nombrePersonnes, evenement, remarque } = req.query
+	const { nom, prenom, nombrePersonnes, evenement, remarque } = req.query
 	// Render the confirmation HTML page with guest information
-	res.render("confirmation", { guestName, prenom, nombrePersonnes, evenement, remarque })
+	res.render("confirmation", { nom, prenom, nombrePersonnes, evenement, remarque })
 })
 
 app.get("/view-guests", (req, res) => {
@@ -76,7 +76,7 @@ app.get("/view-guests", (req, res) => {
 		let tableHtml =
 			"<table border='1'><tr><th>Guest Name</th><th>First Name</th><th>Number of Guests</th><th>Event</th><th>Remarks</th></tr>"
 		result.rows.forEach((row) => {
-			tableHtml += `<tr><td>${row.guestname}</td><td>${row.prenom}</td><td>${row.nombrepersonnes}</td><td>${row.evenement}</td><td>${row.remarque}</td></tr>`
+			tableHtml += `<tr><td>${row.nom}</td><td>${row.prenom}</td><td>${row.nombrepersonnes}</td><td>${row.evenement}</td><td>${row.remarque}</td></tr>`
 		})
 		tableHtml += "</table>"
 
