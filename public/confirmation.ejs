@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Confirmation de Soumission</title>
+		<link rel="stylesheet" href="/css/style.css" />
+		<!-- Assuming you have a CSS file tailored for a wedding theme -->
+		<style>
+			body {
+				font-family: "Arial", sans-serif;
+				margin: 0;
+				padding: 20px;
+				background-color: #f0e6f6;
+				color: #333;
+			}
+
+			h1 {
+				color: #6a329f;
+			}
+
+			p {
+				color: #555;
+			}
+
+			a {
+				display: inline-block;
+				background-color: #6a329f;
+				color: #fff;
+				padding: 10px 20px;
+				text-decoration: none;
+				border-radius: 5px;
+				margin-top: 20px;
+			}
+
+			a:hover {
+				background-color: #57278f;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Merci !</h1>
+		<p>Votre soumission a été bien reçue.</p>
+		<h2>Informations sur l'invité :</h2>
+		<p>Nom de l'invité : <%= guestName %></p>
+		<p>Prénom : <%= prenom %></p>
+		<p>Nombre d'invités : <%= nombrePersonnes %></p>
+		<p>Événement : <%= evenement %></p>
+		<p>Remarques : <%= remarque %></p>
+		<a href="/">Retourner à la page principale</a>
+	</body>
+</html>
